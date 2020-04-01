@@ -119,6 +119,9 @@ cnc.sendMove = function(cmd) {
             controller.command('gcode', 'G0 Z4')
             controller.command('gcode', 'G90')
         },
+        'Home': function() {
+            controller.command('gcode', '$H')
+        },
         'X0Y0': function() {
             move({ X: 0, Y: 0, Z: 0 })
         },
