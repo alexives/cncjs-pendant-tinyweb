@@ -123,7 +123,7 @@ cnc.sendMove = function(cmd) {
             controller.command('gcode', '$H')
         },
         'X0Y0': function() {
-            move({ X: 0, Y: 0, Z: 0 })
+            move({ X: 0, Y: 0 })
         },
         'X0': function() {
             move({ X: 0 });
