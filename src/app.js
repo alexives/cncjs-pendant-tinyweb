@@ -348,6 +348,7 @@ function formatTimeMillis(milliseconds) {
 }
 
 controller.on('sender:status', function(data) {
+    $('[data-route="axes"] [data-name="gcode-instructions"]').text(`${data.received}/${data.total}`)
     $('[data-route="axes"] [data-name="elapsed-time"]').text(formatTimeMillis(data.elapsedTime))
     $('[data-route="axes"] [data-name="remaining-time"]').text(formatTimeMillis(data.remainingTime))
 })
