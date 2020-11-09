@@ -335,6 +335,23 @@ function renderGrblState(data) {
     $('[data-route="axes"] [data-name="wpos-z"]').text(wpos.z);
 }
 
+function formatTimeMillis(milliseconds) {
+    var hours = Math.floor(milliseconds/3600000)
+    var minutes = `${Math.floor(milliseconds/3600000%1*60)}`.padStart(2, '0')
+    var seconds = `${Math.floor(milliseconds/60000%1*60)}`.padStart(2, '0')
+    
+    var time = ''
+    if (hours != 0) {
+        time = `${hours}H `
+    }
+    return `${time}${minutes}M ${seconds}S`
+}
+
+controller.on('sender:status', function(data) {
+    $('[data-route="gcode"] [data-name="elapsed-time"]').text(formatTimeMillis(data.elapsedTime))
+    $('[data-route="gcode"] [data-name="remaining-time"]').text(formatTimeMillis(data.remainingTime))
+})
+
 controller.on('Grbl:state', function(data) {
     // If we do not yet know the reporting units from the $13 setting, we copy
     // the data for later processing when we do know.

@@ -163,6 +163,9 @@ var CNCController = function() {
                 this.type = MARLIN;
                 this.settings = args[0];
             }
+            if(eventName === 'sender:status') {
+                this.sender = args[0];
+            }
 
             this.callbacks[eventName].forEach(function(callback) {
                 callback.apply(callback, args);
