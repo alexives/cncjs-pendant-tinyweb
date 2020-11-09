@@ -348,8 +348,8 @@ function formatTimeMillis(milliseconds) {
 }
 
 controller.on('sender:status', function(data) {
-    $('[data-route="gcode"] [data-name="elapsed-time"]').text(formatTimeMillis(data.elapsedTime))
-    $('[data-route="gcode"] [data-name="remaining-time"]').text(formatTimeMillis(data.remainingTime))
+    $('[data-route="axes"] [data-name="elapsed-time"]').text(formatTimeMillis(data.elapsedTime))
+    $('[data-route="axes"] [data-name="remaining-time"]').text(formatTimeMillis(data.remainingTime))
 })
 
 controller.on('Grbl:state', function(data) {
