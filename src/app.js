@@ -111,10 +111,92 @@ cnc.sendMove = function(cmd) {
         'G30': function() {
             controller.command('gcode', 'G30');
         },
-        'Probe': function() {
+        'Fence Origin': function() {
+            controller.command('gcode', 'G30')
+            controller.command('gcode', 'G91')
+            controller.command('gcode', 'G21')
+            controller.command('gcode', 'G10 L20 P1 X827.53 Y751.26')
+            controller.command('gcode', 'G90')
+            controller.command('gcode', 'G0 X0 Y0')
+        },
+        'Probe Corner 1/4': function() {
+            // Z-Probe
+            controller.command('gcode', 'G91')
             controller.command('gcode', 'G38.2 Z-10 F20')
             controller.command('gcode', 'G90')
-            controller.command('gcode', 'G10 L20 P1 Z19.22')
+            // Set the active WCS Z20
+            controller.command('gcode', 'G10 L20 P1 Z20')
+            // Retract from the touch plate
+            controller.command('gcode', 'G91')
+            controller.command('gcode', 'G0 Z4')
+            // Position X Axis
+            controller.command('gcode', 'G0 X-15')
+            controller.command('gcode', 'G0 Z-8')
+            // X-Probe
+            controller.command('gcode', 'G38.2 X15 F20')
+            // Set the active WCS X-10.175
+            controller.command('gcode', 'G10 L20 P1 X-10.175')
+            // Retract from the touch plate
+            controller.command('gcode', 'G0 X-4 Z8')
+            controller.command('gcode', 'G90')
+            controller.command('gcode', 'G0 X0')
+            // Position Y Axis
+            controller.command('gcode', 'G91')
+            controller.command('gcode', 'G0 Y-15')
+            controller.command('gcode', 'G0 Z-8')
+            // Y-Probe
+            controller.command('gcode', 'G38.2 Y15 F20')
+            // Set the active WCS Y-10.175
+            controller.command('gcode', 'G10 L20 P1 Y-10.175')
+            // Retract from the touch plate
+            controller.command('gcode', 'G0 Y-4 Z8')
+            controller.command('gcode', 'G90')
+            // Move to X0/Y0
+            controller.command('gcode', 'G0 Y0 X0')
+        },
+        'Probe Corner 1/8': function() {
+            // Z-Probe
+            controller.command('gcode', 'G91')
+            controller.command('gcode', 'G38.2 Z-10 F20')
+            controller.command('gcode', 'G90')
+            // Set the active WCS Z20
+            controller.command('gcode', 'G10 L20 P1 Z20')
+            // Retract from the touch plate
+            controller.command('gcode', 'G91')
+            controller.command('gcode', 'G0 Z4')
+            // Position X Axis
+            controller.command('gcode', 'G0 X-15')
+            controller.command('gcode', 'G0 Z-8')
+            // X-Probe
+            controller.command('gcode', 'G38.2 X15 F20')
+            // Set the active WCS X-8.588
+            controller.command('gcode', 'G10 L20 P1 X-8.588')
+            // Retract from the touch plate
+            controller.command('gcode', 'G0 X-4 Z8')
+            controller.command('gcode', 'G90')
+            controller.command('gcode', 'G0 X0')
+            // Position Y Axis
+            controller.command('gcode', 'G91')
+            controller.command('gcode', 'G0 Y-15')
+            controller.command('gcode', 'G0 Z-8')
+            // Y-Probe
+            controller.command('gcode', 'G38.2 Y15 F20')
+            // Set the active WCS Y-8.588
+            controller.command('gcode', 'G10 L20 P1 Y-8.588')
+            // Retract from the touch plate
+            controller.command('gcode', 'G0 Y-4 Z8')
+            controller.command('gcode', 'G90')
+            // Move to X0/Y0
+            controller.command('gcode', 'G0 Y0 X0')
+        },
+        'Probe Plate': function() {
+            // Z-Probe
+            controller.command('gcode', 'G91')
+            controller.command('gcode', 'G38.2 Z-10 F20')
+            controller.command('gcode', 'G90')
+            // Set the active WCS Z25
+            controller.command('gcode', 'G10 L20 P1 Z25')
+            // Retract from the touch plate
             controller.command('gcode', 'G91')
             controller.command('gcode', 'G0 Z4')
             controller.command('gcode', 'G90')

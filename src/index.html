@@ -361,10 +361,42 @@
                     <button
                         type="button"
                         class="btn btn-default probe"
-                        title="Probe set to 19.22mm Offset, 4mm back off"
-                        onclick="cnc.sendMove('Probe')"
+                        title="Probe set to plate Offset, 4mm back off"
+                        onclick="cnc.sendMove('Probe Plate')"
                     >
-                        Probe
+                        Probe Plate
+                    </button>
+                </div>
+                <div class="col-xs-4">
+                    <button
+                        type="button"
+                        class="btn btn-default probe"
+                        title="Corner Probe the block with a 1/4 inch bit"
+                        onclick="cnc.sendMove('Probe Corner 1/4')"
+                    >
+                        Probe Corner 1/4
+                    </button>
+                </div>
+                <div class="col-xs-4">
+                    <button
+                        type="button"
+                        class="btn btn-default probe"
+                        title="Corner Probe the block with a 1/8 inch bit"
+                        onclick="cnc.sendMove('Probe Corner 1/8')"
+                    >
+                        Probe Corner 1/8
+                    </button>
+                </div>
+            </div>
+            <div class="row no-gutter bottom-row">
+                <div class="col-xs-4">
+                    <button
+                        type="button"
+                        class="btn btn-default probe"
+                        title="Probe set to 19.22mm Offset, 4mm back off"
+                        onclick="cnc.sendMove('Front Corner')"
+                    >
+                        Fence Origin
                     </button>
                 </div>
                 <div class="col-xs-2">
